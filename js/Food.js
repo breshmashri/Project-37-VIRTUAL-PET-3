@@ -25,15 +25,6 @@ class Food {
 
     display(){
         background(46, 139, 87);
-        fill(255, 255, 254);
-        textSize(15);
-        if(lastFed >= 12){
-            text("Last Feed : "+ lastFed%12 + " PM", 50, 30);
-        }else if(lastFed == 0){
-            text("Last Feed : 12 AM",50,30);
-        }else{
-            text("Last Feed : "+ lastFed + " AM", 50, 30);
-        }
         var x = 70,
             y = 100; 
         imageMode(CENTER);

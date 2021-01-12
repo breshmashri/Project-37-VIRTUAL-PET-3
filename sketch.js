@@ -50,15 +50,21 @@ function setup() {
 
 function draw() {
   currentTime = hour();
-  if(currentTime == (lastFed+1)){
+  console.log(lastFed);
+  if(lastFed === undefined){
+    feed.hide();
+    addFood.hide();
+  }
+  if(lastFed != undefined){
+    if(currentTime == (lastFed+1)){
       update("Playing");
       foodObj.garden();
    }else if(currentTime == (lastFed+2)){
     update("Sleeping");
-      foodObj.bedroom();
+    foodObj.bedroom();
    }else if(currentTime>(lastFed+2) && currentTime <= (lastFed+4)){
     update("Bathing");
-      foodObj.washroom();
+    foodObj.washroom();
    }else{
     update("Hungry")
     foodObj.display();
@@ -74,6 +80,17 @@ function draw() {
     dog.addImage(sadDog);
    }
   drawSprites();
+  fill("black");
+  textSize(15);
+  if(lastFed >= 12){
+      text("Last Fed : "+ lastFed%12 + " PM", 50, 30);
+        }else if(lastFed == 0){
+            text("Last Fed : 12 AM",50,30);
+        }else{
+            text("Last Fed : "+ lastFed + " AM", 50, 30);
+        }
+  }
+  
 }
 
 //Function to read food Stock

@@ -1,10 +1,11 @@
 //Creating the variables
-var dog,sadDog,happyDog,garden,washroom, database;
-var foodS,foodStock;
-var fedTime,lastFed,currentTime;
-var feed,addFood;
+var dog, sadDog, happyDog, garden, washroom;
+var database;
+var foodS, foodStock;
+var fedTime, lastFed, currentTime;
+var feed, addFood;
 var foodObj;
-var gameState,readState;
+var gameState, readState;
 
 function preload(){
   //Loading the images
@@ -52,6 +53,11 @@ function draw() {
   currentTime = hour();
   console.log(lastFed);
   if(lastFed === undefined){
+    feed.hide();
+    addFood.hide();
+  }
+  
+  if(lastFed === hour()){
     feed.hide();
     addFood.hide();
   }
